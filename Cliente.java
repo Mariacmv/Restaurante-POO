@@ -1,5 +1,4 @@
 package br.com.restaurante;
-import java.util.Scanner;
 
 public class Cliente {
     // Atributos privados
@@ -23,37 +22,36 @@ public class Cliente {
 
     // Métodos getter e setter
     // Nome
-    public String getNome(String nome){
+    public String getNome(){
         return nome;
     }
 
-    public void setNome(String nome[]) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
     // Endereço
-    public String getEndereco(String endereco[]){
+    public String getEndereco(){
         return endereco;
     }
 
-    public void setEndereco(String endereco[]) {
+    public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
 
     // Telefone
-    public int getTelefone(String telefone){
+    public String getTelefone(){
         return telefone;
     }
 
-    public void setTelefone(String telefone[]) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
     // Método visualizarCliente()
-    public void visualizarCliente(){
-        System.out.println("Nome: " + nome);
-        System.out.println("Endereço: " + endereco);
-        System.out.println("Telefone: " + telefone);
+    public String visualizarCliente(){
+        return "Nome: " + nome + "\nEndereço: " + endereco + "\nTelefone: " + telefone;
     }
+
 
 }
