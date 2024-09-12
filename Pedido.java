@@ -7,12 +7,16 @@ public class Pedido {
     private float total;
     private String status;
 
+    // Definindo os possíveis status
+    private static final String[] statusList = {"Em andamento", "Pronto", "Entregando"};
+    private static int statusCounter = 0;  // contador para mudar o status
+
     public Pedido(int capacidadeInicial, Cliente cliente) {
         this.itens = new ItemMenu[capacidadeInicial];
         this.numItens = 0;
         this.cliente = cliente;
         this.total = 0.0f;
-        this.status = "Em andamento";
+        this.status = statusList[statusCounter];
     }
 
     public void adicionarItem(ItemMenu item) {
@@ -28,12 +32,14 @@ public class Pedido {
     public void calcularTotal() {
         total = 0.0f;
         for (int i = 0; i < numItens; i++) {
-            total += itens[i].calcularPreco();
+            total += itens[i].getPreco();
         }
     }
 
-    public void atualizarStatus(String novoStatus) {
-        status = novoStatus;
+    // Método para mudar o status automaticamente
+    public void mudarStatus() {
+        statusCounter = (statusCounter + 1) % statusList.length;
+        status = statusList[statusCounter];
     }
 
     public String visualizarPedido() {
